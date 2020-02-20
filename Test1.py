@@ -8,5 +8,5 @@ class Test1(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.get("https://www.walla.co.il/")
-        time.sleep(10)
+        time.sleep(22)
         self.driver.quit()
