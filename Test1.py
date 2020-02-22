@@ -1,6 +1,7 @@
 import unittest
 import time
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 
@@ -12,10 +13,12 @@ class FirstTest(unittest.TestCase):
     def test_1(self):
         self.driver.get("https://www.wikipedia.org")
         assert "Wikipedia" in self.driver.title
-        searchBar = self.driver.find_element_by_id("searchInput")
-        searchBar.send_keys("Python")
-        searchButton = self.driver.find_element_by_class_name("sprite svg-search-icon")
-        searchButton.click(self)
+        self.driver.find_element_by_id("searchInput").send_keys("Python")
+        # self.driver.find_element_by_css_selector("search-input-button")
+        # self.driver.findElement(By.className("pure-button")).click()
+        #self.driver.findElement(By.cssSelector("button[class=pure-button]")).click()
+        #self.driver.findElement(By.cssSelector("button[class*='svg-search-icon']"))
+        self.driver.find_element_by_xpath('//button[text()="submit"]').click()
 
     def tearDown(self):
         time.sleep(5)
