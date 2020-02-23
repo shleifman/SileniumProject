@@ -14,11 +14,8 @@ class FirstTest(unittest.TestCase):
         self.driver.get("https://www.wikipedia.org")
         assert "Wikipedia" in self.driver.title
         self.driver.find_element_by_id("searchInput").send_keys("Python")
-        # self.driver.find_element_by_css_selector("search-input-button")
-        # self.driver.findElement(By.className("pure-button")).click()
-        #self.driver.findElement(By.cssSelector("button[class=pure-button]")).click()
-        #self.driver.findElement(By.cssSelector("button[class*='svg-search-icon']"))
-        self.driver.find_element_by_xpath('//button[text()="submit"]').click()
+        time.sleep(1)
+        self.driver.find_element_by_xpath('//a[2]/div/h3').click()
 
     def tearDown(self):
         time.sleep(5)
